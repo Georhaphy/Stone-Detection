@@ -3,3 +3,4 @@ numpy==2.3.1
 Pillow==11.3.0
 streamlit==1.46.1
 ultralytics==8.3.162
+pip install --upgrade pip
