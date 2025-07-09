@@ -6,7 +6,6 @@ Created on Mon Jul  7 10:51:59 2025
 """
 
 import streamlit as st
-#import cv2
 from PIL import Image, ImageDraw , ImageFont
 import numpy as np
 from ultralytics import YOLO
@@ -44,8 +43,6 @@ if img_file is not None:
        label = f'{object_name} {score}'  
       
        if  object_name != '' :
-           #cv2.rectangle(img, (x0, y0), (x1, y1), (255, 0, 0), 2)
-           #cv2.putText(img, label, (x0, y0 + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
            img1 = ImageDraw.Draw(img)  
            img1.rectangle([x0, y0, x1, y1] , outline ="red" , width=3)
            draw = ImageDraw.Draw(img)  
