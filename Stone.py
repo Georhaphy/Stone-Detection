@@ -6,7 +6,8 @@ Created on Mon Jul  7 10:51:59 2025
 """
 
 import streamlit as st
-import cv2
+#import cv2
+from PIL import Image, ImageDraw , ImageFont
 import numpy as np
 from ultralytics import YOLO
 
@@ -24,8 +25,7 @@ st.markdown("<h1 style='text-align: center; color: black ; font-size: 19px ;'><e
 img_file = st.file_uploader("เปิดไฟล์ภาพ")
 
 if img_file is not None:    
-    file_bytes = np.asarray(bytearray(img_file.read()), dtype=np.uint8)
-    img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+    img = Image.open(img_file)
     result = model.predict(img)
     if not result :
         pass 
@@ -44,8 +44,13 @@ if img_file is not None:
        label = f'{object_name} {score}'  
       
        if  object_name != '' :
-           cv2.rectangle(img, (x0, y0), (x1, y1), (255, 0, 0), 2)
-           cv2.putText(img, label, (x0, y0 + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+           #cv2.rectangle(img, (x0, y0), (x1, y1), (255, 0, 0), 2)
+           #cv2.putText(img, label, (x0, y0 + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+           img1 = ImageDraw.Draw(img)  
+           img1.rectangle([x0, y0, x1, y1] , outline ="red" , width=3)
+           draw = ImageDraw.Draw(img)  
+           font = ImageFont.truetype("ARIAL.TTF", 20 )
+           draw.text( (x0, y0-20), label, font=font , fill=(255,0,0))
        else :
            pass
                     
