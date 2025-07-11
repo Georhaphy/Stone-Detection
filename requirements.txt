@@ -1,8 +1,8 @@
 numpy==2.3.1
 Pillow==11.3.0
 streamlit==1.46.1
-ultralytics==8.3.162
-matplotlib>=3.3.0
+ultralytics
+matplotlib
 pyyaml>=5.3.1
 requests>=2.23.0
 scipy>=1.4.1
