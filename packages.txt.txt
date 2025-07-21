@@ -1,3 +1,5 @@
+libgl1
+libGL.so.1
 freeglut3-dev
 libgtk2.0-dev
 libgl1-mesa-libGL.so.1
@@ -7,7 +9,5 @@ libglib2.0-0
 ffmpeg 
 libsm6 
 libxext6
-libgl1
-libGL.so.1
 libxrender-dev
 libgomp1
